@@ -12,20 +12,21 @@
 
 ActiveRecord::Schema.define(version: 20170617152149) do
 
-  create_table "dependencies", force: :cascade do |t|
+  create_table "dependencies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "os"
-    t.integer "package_id"
+    t.bigint "package_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["package_id"], name: "index_dependencies_on_package_id"
   end
 
-  create_table "packages", force: :cascade do |t|
+  create_table "packages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "pack_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "dependencies", "packages"
 end

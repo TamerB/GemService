@@ -18,7 +18,6 @@ class PackagesController < ApplicationController
 		dependencies.each do |dep|
 			result.dependencies.build(name: dep, os: os)
 		end
-
 		result.save!
 
 		render json: result, status: :created

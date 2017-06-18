@@ -5,10 +5,18 @@ This is a Ruby on Rails REST API that responds to 1. GET request to get system l
 * Configuration:
 
     $ bundle install
-    $ rails s
 
 if bundle install is not working, you can execute the following command first:
 
-    $ gem install bundler
+    $ gem install rails
 
-* Database installation and creation: This REST API uses sqlite. So, " $ bundle install " will cover this part
+* Database configuration
+
+Edit database username and password in config/database.yml. The execute the following commands
+
+    $ rake db:create
+    $ rake db:migrate
+
+* Run the application
+
+    $ rails s

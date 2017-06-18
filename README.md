@@ -1,24 +1,14 @@
-# README
+This is a Ruby on Rails REST API that responds to 1. GET request to get system libraries needed for certain dependencies. and 2. POST request to post needed system libraries required for a certain dependency
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version : 5.1.1
 
-Things you may want to cover:
+* Configuration:
 
-* Ruby version
+    $ bundle install
+    $ rails s
 
-* System dependencies
+if bundle install is not working, you can execute the following command first:
 
-* Configuration
+    $ gem install bundler
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Database installation and creation: This REST API uses sqlite. So, " $ bundle install " will cover this part

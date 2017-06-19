@@ -13,7 +13,7 @@ class ApplicationController < ActionController::API
   end 
 
   def error_occurred(error)
-    render json: { error: error.message }.to_json, status: 500
+    render json: { error: error.message }, status: 500
     nil
   end
 

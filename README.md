@@ -12,7 +12,9 @@ if bundle install is not working, you can execute the following command first:
 
 * Database configuration
 
-Edit database username and password in config/database.yml. The execute the following commands
+Database used is MariaDB. So, MariaDB (or MySQL) must be installed and configured properely for Rails projects.
+
+The, edit database username and password in config/database.yml. The execute the following commands
 
     $ rake db:create
     $ rake db:migrate

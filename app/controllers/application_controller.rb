@@ -1,22 +1,23 @@
 class ApplicationController < ActionController::API
-  rescue_from ActiveRecord::RecordNotFound do
-    render json: { error: 'Record not found' }, status: 404
-    nil
-  end
 
-  rescue_from NameError, with: :error_occurred
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   rescue_from ActionController::RoutingError, with: :error_occurred
   rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
+  rescue_from NameError, with: :error_occurred
+  rescue_from StandardError, with: :record_invalid
 
-  protected
+  private
 
-  def error_occurred(exception)
-    render json: { error: exception.message }.to_json, status: 500
+  def record_not_found(error)
+    render json: {error: error.message}, status: :not_found
+  end 
+
+  def error_occurred(error)
+    render json: { error: error.message }.to_json, status: 500
     nil
   end
 
-  def record_invalid(exception)
-    render json: { error: exception.message }, status: :unprocessable_entity
-    nil
+  def record_invalid(error)
+    render json: { error: error.message }, status: :unprocessable_entity
   end
 end
